@@ -233,7 +233,7 @@
 	}
 
 	window.addEventListener("load",function () {
-		if (localStorage.UltimatePrestigeSave === null)
+		if (localStorage.UltimatePrestigeSave === undefined)
 			this.localStorage.setItem("UltimatePrestigeSave",JSON.stringify(data));
 		else {
 			data = JSON.parse(localStorage.UltimatePrestigeSave);
