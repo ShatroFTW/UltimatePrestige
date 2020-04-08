@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+	<script type="text/javascript" src="break_infinity.min.js"></script>
+	<script type="text/javascript" src="format.js"></script>
+	<script src="main.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="style.css">
+	<title>Ultimate Prestige</title>
+</head>
+<body>
+	<div>
+		<h1><span id="coins">0</span> coins</h1>
+		<h3><span id="gain">0</span> coins/second</h3>
+
+		<div><span>Coinupgrade</span>
+			<button id="upgradebtn">Upgrade</button>
+			<span title="Auto-buys the Coinupgrade as long as its cost is below the Tier I cost." id="autoUpgradeCoins"><input type="checkbox" id="autoUpgradeCB"> Autoupgrade</span>
+		</div>
+	</div>
+	<table id="tiers">
+		<tr style="display: table-row;" class="tierTable">
+			<th>Tier</th>
+			<th>Name</th>
+			<th>Effect</th>
+			<th>Amount</th>
+			<th>Prestiges</th>
+			<th class="prestigeBoostColumn" style="display:none">Boosts</th>
+		</tr>
+		<tr style="display: table-row;" class="tierTable">
+			<td>I</td>
+			<td><span id="tier1name">Nanoprestige</span></td>
+			<td id="tier1mul">x1</td>
+			<td id="tier1a">0</td>
+			<td><button id="tier1btn">Activate</button></td>
+			<td class="prestigeBoostColumn"><button id="tier1boost">Boost</button></td>
+		</tr>
+		<tr id="tierunlock1" class="tierTable">
+			<td>II</td>
+			<td><span id="tier2name">Microprestige</span></td>
+			<td id="tier2mul">x1</td>
+			<td id="tier2a">0</td>
+			<td><button id="tier2btn">Activate</button></td>
+			<td class="prestigeBoostColumn"><button id="tier2boost">Boost</button></td>
+		</tr>
+		<tr id="tierunlock2" class="tierTable">
+			<td>III</td>
+			<td>Miniprestige</td>
+			<td id="tier3mul">x1</td>
+			<td id="tier3a">0</td>
+			<td><button id="tier3btn">Activate</button></td>
+			<td class="prestigeBoostColumn"><button id="tier3boost">Boost</button></td>
+		</tr>
+		<tr  id="tierunlock3" class="tierTable">
+			<td>IV</td>
+			<td>Small Prestige</td>
+			<td id="tier4mul">x1</td>
+			<td id="tier4a">0</td>
+			<td><button id="tier4btn">Activate</button></td>
+			<td class="prestigeBoostColumn"><button id="tier4boost">Boost</button></td>
+		</tr>
+		<tr  id="tierunlock4" class="tierTable">
+			<td>V</td>
+			<td>Partial Prestige</td>
+			<td id="tier5mul">x1</td>
+			<td id="tier5a">0</td>
+			<td><button id="tier5btn">Activate</button></td>
+			<td class="prestigeBoostColumn"><button id="tier5boost">Boost</button></td>
+		</tr>
+		<tr id="tierunlock5" class="tierTable">
+			<td>VI</td>
+			<td>Full Prestige</td>
+			<td id="tier6mul">x1</td>
+			<td id="tier6a">0</td>
+			<td><button id="tier6btn">Activate</button></td>
+			<td class="prestigeBoostColumn"><button id="tier6boost">Boost</button></td>
+		</tr>
+		<tr id="tierunlock6" class="tierTable">
+			<td>VII</td>
+			<td>Multiprestige</td>
+			<td id="tier7mul">x1</td>
+			<td id="tier7a">0</td>
+			<td><button id="tier7btn">Activate</button></td>
+			<td class="prestigeBoostColumn"><button id="tier7boost">Boost</button></td>
+		</tr>
+		<tr id="tierunlock7" class="tierTable">
+			<td>VIII</td>
+			<td>Hyperprestige</td>
+			<td id="tier8mul">x1</td>
+			<td id="tier8a">0</td>
+			<td><button id="tier8btn">Activate</button></td>
+			<td class="prestigeBoostColumn"><button id="tier8boost">Boost</button></td>
+		</tr>
+		<tr id="tierunlock8" class="tierTable">
+			<td>IX</td>
+			<td>Ultraprestige</td>
+			<td id="tier9mul">x1</td>
+			<td id="tier9a">0</td>
+			<td><button id="tier9btn">Activate</button></td>
+			<td class="prestigeBoostColumn"><button id="tier9boost">Boost</button></td>
+		</tr>
+		<tr id="tierunlock9" class="tierTable">
+			<td>X</td>
+			<td>Final Prestige</td>
+			<td id="tier10mul">x1</td>
+			<td id="tier10a">0</td>
+			<td><button id="tier10btn">Activate</button></td>
+			<td class="prestigeBoostColumn"><button id="tier10boost">Boost</button></td>
+		</tr>
+	</table>
+	<div id="credits">
+		<span>Based on the <a href="https://makiki99.github.io/metaprestige/">Prestige Trilogy</a> by <a href="https://github.com/makiki99">makiki99</a>
+		<br>Shoutout to the <a href="https://www.reddit.com/r/incremental_games/">Incremental Games Reddit</a> community</span>
+	</div>
+</body>
+</html>
