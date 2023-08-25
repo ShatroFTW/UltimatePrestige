@@ -27,16 +27,16 @@ button:disabled {
 	background-color: gray;
 	color: #222;
 }
+
 tr.tierTable {
 	display: none;
 }
 
-td.prestigeBoostColumn
-{
-	display: none;
+tbody .tierTable:first-child {
+	display: table-row;
 }
 
-th.prestigeBoostColumn
+.prestigeBoostColumn
 {
 	display: none;
 }

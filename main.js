@@ -6,7 +6,7 @@
 		metaBonus: new Decimal(1),
 		coinmulti: new Decimal(1),
 		tiers: [
-			{ Name: "Nanoprestige", RequirementString: " Coins", Cost: new Decimal(10), Prestiges: new Decimal(1), Multi: new Decimal(1) },
+			{ Name: "Nanoprestige", RequirementString: " Coins", Cost: new Decimal(20), Prestiges: new Decimal(1), Multi: new Decimal(1) },
 			{ Name: "Microprestige", RequirementString: "x Tier I", Cost: new Decimal(2), Prestiges: new Decimal(0), Multi: new Decimal(1) },
 			{ Name: "Miniprestige", RequirementString: "x Tier II", Cost: new Decimal(3), Prestiges: new Decimal(0), Multi: new Decimal(1) }, 
 			{ Name: "Small Prestige", RequirementString: "x Tier III", Cost: new Decimal(4), Prestiges: new Decimal(0), Multi: new Decimal(1) },
@@ -59,13 +59,12 @@
 			return Decimal.pow(2,data.coinupgrades).times(10).floor();
 	}
 
-	function getRequirement(id) {
-			if(id === 0)
-				return data.tiers[id].Cost;
-			else
-				return data.tiers[id].Cost;
-				// return Decimal.pow(id+1,(data.tiers[id].Prestiges.add(1)));
-	}
+	function getCost(id) {
+		if(id === 0)
+			return Decimal.pow(1.5,data.tiers[0].Prestiges).times(20);
+		else
+			return data.tiers[id].Prestiges.add(1).times(id+1);
+}
 
 	function getMetaPrestigePoints()
 	{
@@ -74,9 +73,9 @@
 
 	function canActivatePrestige(id) {
 		if (id===0) {
-			return (data.coins.greaterThanOrEqualTo(data.tiers[id].Cost));
+			return (data.coins.greaterThanOrEqualTo(getCost(id)));
 		} else {
-			return (data.tiers[id-1].Prestiges.greaterThanOrEqualTo(getRequirement(id)));
+			return (data.tiers[id-1].Prestiges.greaterThanOrEqualTo(getCost(id)));
 		}
 	}
 
@@ -152,7 +151,7 @@
 		data.coins = data.coins.add(tick * deltaTime);
 		data.totalCoins = data.totalCoins.add(tick * deltaTime);
 		checkUnlocks();
-		if(document.getElementById("autoUpgradeCB").checked === true && getCoinUpgradePrice().lessThan(getRequirement(0)))
+		if(document.getElementById("autoUpgradeCB").checked === true && getCoinUpgradePrice().lessThan(getCost(0)))
 			upgradeCoins();
 		for(var i = 9; i >= 0; i--)
 		{
@@ -232,6 +231,11 @@
 		}
 	}
 
+	function wipeSave() {
+		localStorage.removeItem("UltimatePrestigeSave");
+		location.reload();
+	}
+
 	window.addEventListener("load",function () {
 		if (localStorage.UltimatePrestigeSave === undefined)
 			this.localStorage.setItem("UltimatePrestigeSave",JSON.stringify(data));
@@ -284,10 +288,14 @@
 			"click",
 			activateMetaprestige
 		);
+
+		document.getElementById("wipeSave").addEventListener(
+			"click",
+			wipeSave
+		);
 		
 		setInterval(function () {
 			update();
 			draw();
 		}, 100);
-		console.log("interval loaded");
 	});
